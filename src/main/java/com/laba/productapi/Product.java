@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Product {
 
     //Ödevdeki product özellikleri doğrudan alındı
-    //
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

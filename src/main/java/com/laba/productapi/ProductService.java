@@ -1,18 +1,26 @@
 package com.laba.productapi;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ProductService {
-    private final ProductRepo productRepo;
+    private final ProductRepository productRepository;
 
-    public ProductService(ProductRepo productRepo) {
-        this.productRepo = productRepo;
+@Autowired
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
+public Product saveProduct(Product product){
+
+    return productRepository.save(product);
+}
 
     public List<Product> getProductsByCategory(String category){
-        return productRepo.findByCategory(category);
+        return productRepository.findByCategory(category);
     }
+
+
 }

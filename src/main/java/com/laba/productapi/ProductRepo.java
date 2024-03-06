@@ -7,10 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+
 public class ProductRepo {
     private final JdbcTemplate jdbcTemplate;
-    private RowMapper<Product> rowMapper=(rs, rowNum) -> new Product    (
+    private RowMapper<Product> rowMapper=(rs, rowNum) -> new Product(
                 rs.getLong("id"),
                 rs.getString("name"),
                 rs.getString("category"),
