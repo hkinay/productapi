@@ -1,4 +1,4 @@
-package com.laba.productapi;
+package com.laba.productapi.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,5 +1,6 @@
-package com.laba.productapi;
+package com.laba.productapi.repository;
 
+import com.laba.productapi.Entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

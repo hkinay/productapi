@@ -1,5 +1,7 @@
-package com.laba.productapi;
+package com.laba.productapi.service;
 
+import com.laba.productapi.Entity.Product;
+import com.laba.productapi.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

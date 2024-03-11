@@ -1,9 +1,8 @@
-package com.laba.productapi;
+package com.laba.productapi.repository;
 
-import org.springframework.boot.autoconfigure.batch.BatchProperties;
+import com.laba.productapi.Entity.Product;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
