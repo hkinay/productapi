@@ -22,7 +22,9 @@ public class Order {
     @Column(nullable = false)
     private String musteriid;
 
-    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
+    //orphanRemoval = true özelliği, Order'dan bir OrderItem'ı kaldırdığınızda, bu OrderItem'ın veritabanından da silinmesini sağlar.
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<OrderItem> orderItems = new HashSet<>();
 
     public Order(Long id, Date orderDate, String musteriid, Set<OrderItem> orderItems) {
