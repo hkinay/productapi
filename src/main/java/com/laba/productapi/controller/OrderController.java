@@ -20,7 +20,7 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @PostMapping
+    @PostMapping({"/save"})
     public ResponseEntity<String> createOrder(@RequestBody OrderDto orderDto){
     Order savedOrder = orderService.createOrder(orderDto);
     if (savedOrder!=null){

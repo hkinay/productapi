@@ -28,4 +28,10 @@ private final ProductService productService;
     return ResponseEntity.ok("İşleminiz gerçekleşmiştir.");
 }
 
+@DeleteMapping({"/deleteproductbyid"})
+    public ResponseEntity<String> deleteProduct(@RequestParam Product product){
+    productService.delete(product);
+    return ResponseEntity.ok("Silme işlemi gerçekleşmiştir.");
+}
+
 }

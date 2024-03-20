@@ -20,9 +20,21 @@ public Product saveProduct(Product product){
     return productRepository.save(product);
 }
 
+    public Product findProductById(Long id){
+        return productRepository.findById(id).get();
+    }
+
+    public void delete(Long productId) {
+        Product product = productRepository.findById(productId).get();
+        productRepository.delete(product);
+
+    }
+
     public List<Product> getProductsByCategory(String category){
         return productRepository.findByCategory(category);
     }
+
+
 
 
 }
