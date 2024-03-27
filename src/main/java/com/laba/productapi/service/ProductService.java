@@ -1,6 +1,7 @@
 package com.laba.productapi.service;
 
 import com.laba.productapi.Entity.Product;
+import com.laba.productapi.exceptions.ResourceNotFoundException;
 import com.laba.productapi.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,11 +22,14 @@ public Product saveProduct(Product product){
 }
 
     public Product findProductById(Long id){
-        return productRepository.findById(id).get();
+
+    return productRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException(id + "numaralı ürün bulunamadı"));
     }
 
     public void delete(Long productId) {
-        Product product = productRepository.findById(productId).get();
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() ->new ResourceNotFoundException(productId + "numaralı ürün silinemedi"));
         productRepository.delete(product);
 
     }
