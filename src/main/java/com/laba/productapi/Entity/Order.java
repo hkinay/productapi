@@ -2,7 +2,6 @@ package com.laba.productapi.Entity;
 
 import jakarta.persistence.*;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,37 +12,39 @@ public class Order {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long orderId;
 
     @Column (nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderDate = new Date();
 
     @Column(nullable = false)
-    private String musteriid;
+    private String orderNumber;
 
 
     //orphanRemoval = true özelliği, Order'dan bir OrderItem'ı kaldırdığınızda, bu OrderItem'ın veritabanından da silinmesini sağlar.
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<OrderItem> orderItems = new HashSet<>();
 
-    public Order(Long id, Date orderDate, String musteriid, Set<OrderItem> orderItems) {
-        this.id = id;
+    public Order(Long orderid, Date orderDate, String orderNumber, Set<OrderItem> orderItems) {
+        this.orderId = orderid;
         this.orderDate = orderDate;
-        this.musteriid = musteriid;
+        this.orderNumber = orderNumber;
         this.orderItems = orderItems;
+
     }
+
 
     public Order() {
 
     }
 
-    public Long getId() {
-        return id;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setOrderId(Long id) {
+        this.orderId = id;
     }
 
     public Date getOrderDate() {
@@ -54,12 +55,12 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public String getMusteriid() {
-        return musteriid;
+    public String getOrderNumber() {
+        return orderNumber;
     }
 
-    public void setMusteriid(String musteriid) {
-        this.musteriid = musteriid;
+    public void setOrderNumber(String musteriid) {
+        this.orderNumber = musteriid;
     }
 
     public Set<OrderItem> getOrderItems() {

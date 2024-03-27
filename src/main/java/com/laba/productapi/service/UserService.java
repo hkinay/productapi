@@ -4,9 +4,11 @@ import com.laba.productapi.Dto.UserSaveRequestDto;
 import com.laba.productapi.Entity.Users;
 import com.laba.productapi.mapper.UserMapper;
 import com.laba.productapi.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UserService{
 
     private final UserRepository userRepository;
@@ -18,7 +20,7 @@ public class UserService{
     }
 
     public void save(UserSaveRequestDto userSaveRequestDto) {
-        Users users = UserMapper.userSaveRequestDtoToUser(userSaveRequestDto);
+        Users users = userMapper.userSaveRequestDtoToUser(userSaveRequestDto);
         userRepository.save(users);
     }
 

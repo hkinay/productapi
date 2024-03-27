@@ -30,7 +30,7 @@ public class OrderService {
     @Transactional
     public Order createOrder(OrderDto orderDto) {
         Order order = new Order();
-        order.setMusteriid(orderDto.getMusteriid());
+        order.setOrderNumber(orderDto.getMusteriid());
         order.setOrderDate(orderDto.getOrderDate());
 
         Set<OrderItem> orderItems = new HashSet<>();
